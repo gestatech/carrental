@@ -15,6 +15,8 @@
 
 # Intellij
 *.iml
+*.\.idea\
+*.\idea\
 
 # Scripts
 *.cmd
