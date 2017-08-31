@@ -23,4 +23,94 @@
         <module>carrental-ear</module>
     </modules>
 
+    <dependencyManagement>
+        <dependencies>
+            <!-- Java EE Framework -->
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>${version.java.ee.api}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- Project Dependencies -->
+            <dependency>
+                <groupId>be.gestatech</groupId>
+                <artifactId>carrental-ejb</artifactId>
+                <version>${project.version}</version>
+                <type>ejb</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>be.gestatech</groupId>
+                <artifactId>carrental-ejb</artifactId>
+                <version>${project.version}</version>
+                <type>test-jar</type>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>be.gestatech</groupId>
+                <artifactId>carrental-web</artifactId>
+                <version>${project.version}</version>
+                <type>war</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>be.gestatech</groupId>
+                <artifactId>carrental-web</artifactId>
+                <version>${project.version}</version>
+                <type>test-jar</type>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- External Frameworks and Dependencies -->
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${version.war.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ejb-plugin</artifactId>
+                    <version>${version.ejb.plugin}</version>
+                    <configuration>
+                        <ejbVersion>3.2</ejbVersion>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${version.surefire.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codeartisans.asadmin</groupId>
+                    <artifactId>asadmin-maven-plugin</artifactId>
+                    <version>${version.asadmin.maven.plugin}</version>
+                    <configuration>
+                        <glassfishHome>C:/Pgm/Oracle/glassfish-4.1.2</glassfishHome>
+                        <domain>domain1</domain>
+                        <host>localhost</host>
+                        <port>4848</port>
+                        <user>admin</user>
+                        <!--passwordfile>~/.asadmintruststore</passwordfile-->
+                        <appArchive>${project.build.directory}/${project.build.finalName}.${project.artifact.artifactHandler.extension}</appArchive>
+                        <contextRoot>.${project.artifactId}</contextRoot>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>io.fabric8</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>${version.docker.maven.plugin}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
 </project>

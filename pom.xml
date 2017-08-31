@@ -24,21 +24,34 @@
     </prerequisites>
 
     <properties>
+        <version.java.ee.api>7.0</version.java.ee.api>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.artifact.artifactHandler.extension>ear</project.artifact.artifactHandler.extension>
         <!-- maven-compiler-plugin -->
-        <version.maven>3.3.9</version.maven>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <!-- other plugin versions -->
+        <version.maven>3.3.9</version.maven>
+        <version.compiler.plugin>3.6.2</version.compiler.plugin>
+        <version.ear.plugin>2.10.1</version.ear.plugin>
+        <version.ejb.plugin>3.0.0</version.ejb.plugin>
+        <version.surefire.plugin>2.20</version.surefire.plugin>
+        <version.war.plugin>3.1.0</version.war.plugin>
+        <version.asadmin.maven.plugin>0.12</version.asadmin.maven.plugin>
+        <version.docker.maven.plugin>0.22.1</version.docker.maven.plugin>
     </properties>
 
     <modules>
         <!--module>carrental-frontend</module-->
         <module>carrental-backend</module>
     </modules>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+    </build>
 
 </project>
