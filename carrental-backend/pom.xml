@@ -38,12 +38,33 @@
                 <groupId>be.gestatech</groupId>
                 <artifactId>carrental-ejb</artifactId>
                 <version>${project.version}</version>
+                <type>pom</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>be.gestatech</groupId>
+                <artifactId>carrental-ejb-api</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>be.gestatech</groupId>
+                <artifactId>carrental-ejb-api</artifactId>
+                <version>${project.version}</version>
+                <type>test-jar</type>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>be.gestatech</groupId>
+                <artifactId>carrental-ejb-impl</artifactId>
+                <version>${project.version}</version>
                 <type>ejb</type>
                 <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>be.gestatech</groupId>
-                <artifactId>carrental-ejb</artifactId>
+                <artifactId>carrental-ejb-impl</artifactId>
                 <version>${project.version}</version>
                 <type>test-jar</type>
                 <scope>test</scope>
@@ -83,6 +104,21 @@
                     <configuration>
                         <ejbVersion>3.2</ejbVersion>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${version.dependency.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${version.jar.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${version.compiler.plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>

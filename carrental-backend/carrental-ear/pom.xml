@@ -25,7 +25,7 @@
         </dependency>
         <dependency>
             <groupId>be.gestatech</groupId>
-            <artifactId>carrental-ejb</artifactId>
+            <artifactId>carrental-ejb-impl</artifactId>
             <version>${project.version}</version>
             <type>ejb</type>
         </dependency>

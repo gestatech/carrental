@@ -6,20 +6,15 @@
 
     <parent>
         <groupId>be.gestatech</groupId>
-        <artifactId>carrental-backend</artifactId>
+        <artifactId>carrental-ejb</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <groupId>be.gestatech</groupId>
-    <artifactId>carrental-ejb</artifactId>
+    <artifactId>carrental-ejb-api</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>carrental-ejb</name>
-
-    <modules>
-        <module>carrental-ejb-api</module>
-        <module>carrental-ejb-impl</module>
-    </modules>
+    <packaging>jar</packaging>
+    <name>carrental-ejb-api</name>
 
     <dependencies>
         <dependency>
@@ -33,9 +28,17 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-ejb-plugin</artifactId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
-    
+
 </project>
