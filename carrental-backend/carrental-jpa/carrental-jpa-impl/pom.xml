@@ -21,6 +21,11 @@
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>be.gestatech</groupId>
+            <artifactId>carrental-jpa-api</artifactId>
+            <type>jar</type>
+        </dependency>
     </dependencies>
 
     <build>
