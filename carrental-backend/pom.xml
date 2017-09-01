@@ -99,9 +99,9 @@
                         <host>localhost</host>
                         <port>4848</port>
                         <user>admin</user>
-                        <!--passwordfile>~/.asadmintruststore</passwordfile-->
+                        <passwordfile>../${glassfish.password.file}</passwordfile>
                         <appArchive>${project.build.directory}/${project.build.finalName}.${project.artifact.artifactHandler.extension}</appArchive>
-                        <contextRoot>.${project.artifactId}</contextRoot>
+                        <contextRoot>${project.artifactId}</contextRoot>
                     </configuration>
                 </plugin>
                 <plugin>

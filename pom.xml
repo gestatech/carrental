@@ -43,6 +43,8 @@
         <version.war.plugin>3.1.0</version.war.plugin>
         <version.asadmin.maven.plugin>0.12</version.asadmin.maven.plugin>
         <version.docker.maven.plugin>0.22.1</version.docker.maven.plugin>
+        <!-- other settings -->
+        <glassfish.password.file>config/asadmin-truststore.txt</glassfish.password.file>
     </properties>
 
     <modules>
