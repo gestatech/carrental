@@ -20,19 +20,16 @@
         <dependency>
             <groupId>be.gestatech</groupId>
             <artifactId>carrental-ejb-api</artifactId>
-            <version>${project.version}</version>
             <type>jar</type>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>be.gestatech</groupId>
             <artifactId>carrental-ejb-impl</artifactId>
-            <version>${project.version}</version>
             <type>ejb</type>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>be.gestatech</groupId>
             <artifactId>carrental-web</artifactId>
-            <version>${project.version}</version>
             <type>war</type>
         </dependency>
     </dependencies>
