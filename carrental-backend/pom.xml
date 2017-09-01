@@ -18,6 +18,7 @@
 
     <modules>
         <!--module>carrental-infra</module-->
+        <module>carrental-jpa</module>
         <module>carrental-ejb</module>
         <module>carrental-web</module>
         <module>carrental-ear</module>
@@ -34,6 +35,41 @@
             </dependency>
 
             <!-- Project Dependencies -->
+            <dependency>
+                <groupId>be.gestatech</groupId>
+                <artifactId>carrental-jpa</artifactId>
+                <version>${project.version}</version>
+                <type>pom</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>be.gestatech</groupId>
+                <artifactId>carrental-jpa-api</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>be.gestatech</groupId>
+                <artifactId>carrental-jpa-api</artifactId>
+                <version>${project.version}</version>
+                <type>test-jar</type>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>be.gestatech</groupId>
+                <artifactId>carrental-jpa-impl</artifactId>
+                <version>${project.version}</version>
+                <type>jar</type>
+                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>be.gestatech</groupId>
+                <artifactId>carrental-jpa-impl</artifactId>
+                <version>${project.version}</version>
+                <type>test-jar</type>
+                <scope>test</scope>
+            </dependency>
             <dependency>
                 <groupId>be.gestatech</groupId>
                 <artifactId>carrental-ejb</artifactId>
