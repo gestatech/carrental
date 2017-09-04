@@ -132,13 +132,16 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
                     <version>${version.war.plugin}</version>
+                    <configuration>
+                        <failOnMissingWebXml>${failOnMissingWebXml}</failOnMissingWebXml>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-ejb-plugin</artifactId>
                     <version>${version.ejb.plugin}</version>
                     <configuration>
-                        <ejbVersion>3.2</ejbVersion>
+                        <ejbVersion>${ejbVersion}</ejbVersion>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -155,6 +158,23 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${version.compiler.plugin}</version>
+                    <configuration>
+                        <verbose>true</verbose>
+                        <fork>true</fork>
+                        <optimize>true</optimize>
+                        <source>${maven.compiler.source}</source>
+                        <target>${maven.compiler.target}</target>
+                        <maxmem>512m</maxmem>
+                        <meminitial>128m</meminitial>
+                        <showWarnings>true</showWarnings>
+                        <showDeprecation>true</showDeprecation>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <compilerVersion>${maven.compiler.source}</compilerVersion>
+                        <compilerArgument>-Xlint:all,-options,-path</compilerArgument>
+                        <compilerArguments>
+                            <endorseddirs>${endorsed.dir}</endorseddirs>
+                        </compilerArguments>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -172,14 +192,84 @@
                         <port>4848</port>
                         <user>admin</user>
                         <passwordfile>../${glassfish.password.file}</passwordfile>
-                        <appArchive>${project.build.directory}/${project.build.finalName}.${project.artifact.artifactHandler.extension}</appArchive>
+                        <appArchive>
+                            ${project.build.directory}/${project.build.finalName}.${project.artifact.artifactHandler.extension}
+                        </appArchive>
                         <contextRoot>${project.artifactId}</contextRoot>
                     </configuration>
                 </plugin>
-                <plugin>
+                <!--plugin>
                     <groupId>io.fabric8</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
                     <version>${version.docker.maven.plugin}</version>
+                </plugin-->
+                <!--plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <configuration>
+                        <pushChanges>false</pushChanges>
+                        <localCheckout>true</localCheckout>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <preparationGoals>clean install</preparationGoals>
+                    </configuration>
+                </plugin-->
+                <plugin>
+                    <groupId>com.mycila</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <version>3.0</version>
+                    <configuration>
+                        <header>license-header.txt</header>
+                        <headerDefinitions>
+                            <headerDefinition>license-header-definition.xml</headerDefinition>
+                        </headerDefinitions>
+                        <mapping>
+                            <java>JAVADOC_STYLE</java>
+                            <xml>XML_STYLE</xml>
+                        </mapping>
+                        <aggregate>true</aggregate>
+                        <includes>
+                            <include>**/src/**/*.java</include>
+                            <include>**/src/**/*.xml</include>
+                        </includes>
+                        <excludes>
+                            <exclude>**/target/**</exclude>
+                            <!-- The following files contain modified headers due to copied code and need to be excluded from the check -->
+                            <exclude>**/src/main/java/com/blazebit/persistence/view/impl/spring/TypeFilterParser.java
+                            </exclude>
+                            <exclude>
+                                **/src/main/java/org/springframework/data/jpa/repository/query/FixedJpaQueryCreator.java
+                            </exclude>
+                            <exclude>
+                                **/src/main/java/org/springframework/data/jpa/repository/query/PartTreeEntityViewQuery.java
+                            </exclude>
+                            <exclude>
+                                **/src/main/java/org/springframework/data/repository/core/support/BlazeRepositoryFactoryBeanSupport.java
+                            </exclude>
+                            <exclude>
+                                **/src/main/java/org/springframework/data/repository/core/support/BlazeTransactionalRepositoryFactoryBeanSupport.java
+                            </exclude>
+                        </excludes>
+                        <properties>
+                            <inceptionYear>${project.inceptionYear}</inceptionYear>
+                            <latestYearOfContribution>${currentYearDynamic}</latestYearOfContribution>
+                        </properties>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>check-license</id>
+                            <phase>initialize</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
+                        <execution>
+                            <id>generate-license</id>
+                            <phase/>
+                            <goals>
+                                <goal>format</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>

@@ -11,6 +11,8 @@
 
     <url>http://www.gestatech.be</url>
 
+    <inceptionYear>2017</inceptionYear>
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -24,11 +26,13 @@
     </prerequisites>
 
     <properties>
+        <ejbVersion>3.2</ejbVersion>
         <version.java.ee.api>7.0</version.java.ee.api>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
+        <currentYearDynamic>${maven.build.timestamp}</currentYearDynamic>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.artifact.artifactHandler.extension>ear</project.artifact.artifactHandler.extension>
         <!-- maven-compiler-plugin -->
