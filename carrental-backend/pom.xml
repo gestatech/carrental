@@ -17,7 +17,11 @@
     <name>carrental-backend</name>
 
     <modules>
-        <!--module>carrental-infra</module-->
+        <!--module>presentation</module>
+        <module>interfaces</module>
+        <module>application</module>
+        <module>domain</module>
+        <module>infrastructure</module-->
         <module>carrental-jpa</module>
         <module>carrental-ejb</module>
         <module>carrental-web</module>
